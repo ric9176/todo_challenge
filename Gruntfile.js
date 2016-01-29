@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     express: {
       options: {
           port:8080,
-          script: './js/app.js'
+          script: 'index.js'
         },
       run: {
         }
