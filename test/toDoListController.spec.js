@@ -28,7 +28,18 @@ describe('ToDoListController', function() {
     it('is able to remove a task from the list', function(){
       ctrl.addTask("clean room");
       ctrl.deleteTask(0);
-      expect(ctrl.taskList[0].toBeUndefined)
+      expect(ctrl.taskList[0]).toBeUndefined();
     });
   });
+
+  describe('Clearing the To Do List', function(){
+    it('resets the list back to empty', function(){
+      ctrl.addTask("use TDD");
+      ctrl.addTask("learn angular");
+      ctrl.addTask("stop hating JavaScript");
+      ctrl.clearList();
+      expect(ctrl.taskList).toEqual([])
+    });
+  });
+
 });
