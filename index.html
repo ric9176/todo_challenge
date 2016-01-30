@@ -9,13 +9,18 @@
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <link href="css/main.css" rel="stylesheet" />
     <script src="js/app.js"></script>
-    <script src="js/toDoListController"></script>
+    <script src="js/toDoListController.js"></script>
   </head>
 
-  <body ng-controller="ToDoListController as tdlCtrl">
+  <body ng-controller="ToDoListController as tdCtrl">
     <div class="header">
       <div class="container">
         <h1> My List </h1>
+        <input type="text" ng-model="tdCtrl.task">
+        <button class="btn" ng-click="tdCtrl.addTask()">Add Task!</button>
+        <div ng-repeat="task in tdCtrl.taskList" class="taskList">
+          {{ task.taskName }}
+        </div>
       </div>
     </div>
 

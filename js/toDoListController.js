@@ -3,8 +3,8 @@ toDoList.controller('ToDoListController', [function(){
 
   self.taskList = []
 
-  self.addTask = function(taskname){
-    self.taskList.push({task: taskname, competed: false})
+  self.addTask = function(){
+    self.taskList.push({taskName: self.task, completed: false})
   };
 
   self.taskDone = function(tasknumber){
