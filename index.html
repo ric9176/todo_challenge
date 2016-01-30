@@ -17,9 +17,11 @@
       <div class="container">
         <h1> My List </h1>
         <input type="text" ng-model="tdCtrl.task">
-        <button class="btn" ng-click="tdCtrl.addTask()">Add Task!</button>
+        <button class="btn btn-danger" ng-click="tdCtrl.addTask()">Add Task!</button>
         <div ng-repeat="task in tdCtrl.taskList" class="taskList">
-          {{ task.taskName }}
+          <input type="checkbox" ng-model="deleted">
+          <p ng-class="{strike: deleted}">{{ task.taskName }}</p>
+
         </div>
       </div>
     </div>

@@ -1,14 +1,19 @@
 toDoList.controller('ToDoListController', [function(){
   var self = this;
 
-  self.taskList = []
+  self.taskList = [];
 
   self.addTask = function(){
-    self.taskList.push({taskName: self.task, completed: false})
+    if(self.task === "") {
+      return null;
+    } else {
+      self.taskList.push({taskName: self.task, completed: false});
+      self.task = "";
+    }
   };
 
   self.taskDone = function(tasknumber){
-    self.taskList[tasknumber].completed = !self.taskList[tasknumber].completed
+    self.taskList[tasknumber].completed = !self.taskList[tasknumber].completed;
   };
 
   self.deleteTask = function(tasknumber){

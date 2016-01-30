@@ -3,6 +3,8 @@ describe('To Do List', function() {
   var taskField = element(by.model('tdCtrl.task'));
   var taskButton = element(by.className('btn'));
   var taskList = element(by.className('taskList'));
+  var taskCheckBox = element(by.model('deleted'));
+  var ps = element.all(by.css('p'));
 
   beforeEach(function() {
     browser.get('http://localhost:8080');
@@ -16,5 +18,13 @@ describe('To Do List', function() {
     taskField.sendKeys('learn angular');
     taskButton.click();
     expect(taskList.getText()).toEqual('learn angular');
+  });
+
+  it('marks completed tasks as done using a checkbox', function() {
+    taskField.sendKeys('learn angular');
+    taskButton.click();
+    taskCheckBox.click();
+    expect(ps.first().getAttribute('class')).toMatch(/strike/);
+
   });
 });
