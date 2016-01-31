@@ -1,3 +1,4 @@
+sudo: required
 script:
   - npm test --single-run
   - node_modules/.bin/protractor test/e2e/conf.js --browser=firefox
