@@ -10,13 +10,15 @@ describe('ToDoListController', function() {
 
   it('initialises with an empty array', function(){
     expect(ctrl.taskList).toEqual([])
-  })
+
+  });
 
 
   it('is able to add a task and store it in the list', function(){
-    ctrl.addTask("clean room");
-    expect(ctrl.taskList[0].task).toEqual("clean room")
-  })
+    ctrl.task = "clean room";
+    ctrl.addTask();
+    expect(ctrl.taskList[0].taskName).toEqual("clean room")
+  });
 
   it('is able to mark tasks as completed', function(){
     ctrl.addTask("clean room");
