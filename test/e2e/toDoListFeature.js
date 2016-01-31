@@ -3,7 +3,7 @@ describe('To Do List', function() {
   var taskField = element(by.model('tdCtrl.task'));
   var taskButton = element(by.className('add'));
   var taskList = element(by.className('taskList'));
-  var taskCheckBox = element(by.model('deleted'));
+  var taskCheckBox = element.all(by.model('deleted')).first();
   var taskRemove = element.all(by.className('remove')).first();
   var ps = element.all(by.css('p'));
 
@@ -37,4 +37,15 @@ describe('To Do List', function() {
     taskRemove.click();
     expect(taskList.getText()).not.toContain('learn angular');
   });
+
+  it('can clear the completed tasks from the list', function(){
+    taskField.sendKeys('learn angular');
+    taskButton.click();
+    taskField.sendKeys('learn not to hate protractor');
+    taskButton.click();
+    taskCheckBox.click();
+    taskRemove.click();
+    expect(taskList.getText()).not.toContain('learn angular');
+  });
+
 });

@@ -1,5 +1,5 @@
 .strike {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 input, p {
@@ -8,4 +8,8 @@ input, p {
 
 .taskList {
   padding-top: 20px;
+}
+
+.container {
+  text-align:center;
 }

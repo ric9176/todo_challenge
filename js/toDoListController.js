@@ -4,6 +4,7 @@ toDoList.controller('ToDoListController', [function(){
   self.taskList = [];
 
   self.addTask = function(){
+
     if(self.task === "") {
       return null;
     } else {
@@ -20,8 +21,14 @@ toDoList.controller('ToDoListController', [function(){
     self.taskList.splice(tasknumber, 1);
   };
 
-  self.clearList = function() {
-    self.taskList = [];
-  };
+  self.clearCompleted = function() {
+
+   for (i = 0; i < self.taskList.length; i += 1) {
+     if(self.taskList[i].completed === true) {
+       self.taskList.splice(i, 1);
+       i-=1;
+     }
+   }
+ };
 
 }]);

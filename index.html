@@ -18,8 +18,10 @@
         <h1> My List </h1>
         <input type="text" ng-model="tdCtrl.task">
         <button class="add btn btn-danger" ng-click="tdCtrl.addTask()">Add Task!</button>
+        <button class="clear btn btn-primary" ng-click="tdCtrl.clearCompleted()">Clear Done Tasks!</button>
+
         <div ng-repeat="task in tdCtrl.taskList" class="taskList">
-          <input type="checkbox" ng-model="deleted">
+          <input type="checkbox" ng-model="deleted" ng-click="tdCtrl.taskDone($index)">
           <p ng-class="{strike: deleted}">{{ task.taskName }}</p>
           <button class="remove btn btn-warning btn-xs" ng-click="tdCtrl.deleteTask()">deleteTask!</button>
 
